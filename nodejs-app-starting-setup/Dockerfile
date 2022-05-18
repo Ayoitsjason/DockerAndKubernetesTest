@@ -2,7 +2,7 @@
 FROM node:14
 
 # Special directory we want to use
-WORKDIR /app
+WORKDIR /server
 
 # Copy our package.json file into working directory
 COPY package.json .
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Execute node app.mjs
-CMD [ "node", "app.mjs" ]
+CMD [ "node", "server.js" ]

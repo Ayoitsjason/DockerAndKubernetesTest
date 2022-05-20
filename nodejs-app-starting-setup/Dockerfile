@@ -13,7 +13,7 @@ RUN npm install
 # Copy all files inside current folder to our folder inside our image
 COPY . /app
 
-# Expose port # to outside world
+# Expose port # to outside world (this line here is for documentation purposes, in your command line when you type Docker run -p `your local host port`:`dockers exposed port` `image`)
 EXPOSE 3000
 
 # Execute node server.js inside our image

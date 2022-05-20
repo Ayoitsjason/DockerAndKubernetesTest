@@ -1,8 +1,8 @@
 # We want to use nodejs as a base
 FROM node:14
 
-# Special directory we want to use
-WORKDIR /server
+# Special directory we want to use (Container runs node inside WORKDIR)
+WORKDIR /app
 
 # Copy our package.json file into working directory
 COPY package.json .
@@ -10,11 +10,11 @@ COPY package.json .
 # We want to run script to download all out dependencies
 RUN npm install
 
-# Copy the rest of our code inside our package
-COPY . .
+# Copy all files inside current folder to our folder inside our image
+COPY . /app
 
 # Expose port # to outside world
 EXPOSE 3000
 
-# Execute node app.mjs
+# Execute node server.js inside our image
 CMD [ "node", "server.js" ]
